@@ -107,6 +107,34 @@ The backend server will be running at http://localhost:5000
 
 The frontend application will be running at http://localhost:3000
 
+## Abuse Prevention Details
+The system implements multiple layers of abuse prevention:
+
+# IP Address Tracking
+
+- Records user IP addresses with timestamps
+- Enforces a 1-hour cooldown period between claims from the same IP
+
+
+# Cookie-Based Tracking
+
+- Assigns each browser a unique client ID via cookie
+- Prevents multiple claims even across network changes
+- Cookies configured with security best practices
+
+
+# Round-Robin Distribution
+
+- Coupons are distributed in sequential order
+- System tracks the last distributed coupon for rotation
+
+
+# User Feedback
+
+- Clear messaging for successful claims
+- Time remaining before next available claim
+- Appropriate error messages
+
 ## Testing the System
 
 1. Open the application in your browser
